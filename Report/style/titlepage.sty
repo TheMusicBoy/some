@@ -1,0 +1,247 @@
+\RequirePackage{style/textstyle}
+\RequirePackage{amsmath}
+\RequirePackage{graphicx}
+\RequirePackage{textcase}
+\RequirePackage{ifthen}
+\RequirePackage{array}
+\RequirePackage{datetime}
+\RequirePackage[russian]{datetime2}
+\RequirePackage{datetime2-calc}
+
+\makeatletter
+\newcommand*\short[1]{\expandafter\@gobbletwo\number\numexpr#1\relax}
+\makeatother
+
+\newcommand{\uline}[1]{\underline{#1\vphantom{lp}}}
+
+\newcommand{\editspace}[2]{
+	\(
+		\underset{\textit{#2}}{\uline{\text{#1}}}
+	\)
+}
+
+\newcommand{\usign}{\editspace{\hspace{80pt}}{(подпись)}}
+\newcommand{\ufullname}[1]{\editspace{ #1 }{(Ф.И.О.)}}
+\newcommand{\hfullname}[1]{\editspace{ #1 }{(должность, уч. звание)}}
+\newcommand{\docdate}[3]{
+	<<\uline{\,#1\,}>> \uline{\,#2\,} 20\uline{\,#3\,} г.
+}
+\newcommand{\filldate}{
+	\docdate{\hspace{20pt}}{\hspace{80pt}}{\hspace{15pt}}
+}
+\newdateformat{docdateformat}{
+	\docdate{\twodigit{\THEDAY}}{\DTMrussianmonthname{\THEMONTH}}{\short{\THEYEAR}}
+}
+ 
+\newcommand{\FEFUDOCUMENTCLASS}{тип документа}
+\newcommand{\fefudocclass}[1]{
+	\renewcommand{\FEFUDOCUMENTCLASS}{#1}
+}
+
+\newcommand{\FEFUTITLE}{работа}
+\newcommand{\fefutitle}[1]{
+	\renewcommand{\FEFUTITLE}{#1}
+}
+
+\newcommand{\FEFUMAJOR}{направление подготовки}
+\newcommand{\fefumajor}[1]{
+	\renewcommand{\FEFUMAJOR}{#1}
+}
+
+\newcommand{\FEFUGROUP}{группа}
+\newcommand{\fefugroup}[1]{
+	\renewcommand{\FEFUGROUP}{#1}
+}
+
+\newcommand{\FEFUAUTHOR}{}
+\newcommand{\fefuauthor}[1]{
+	\renewcommand{\FEFUAUTHOR}{#1}
+}
+
+\newcommand{\FEFUINSTITUTE}{Институт}
+\newcommand{\fefuinstitute}[1]{
+	\renewcommand{\FEFUINSTITUTE}{#1}
+}
+
+\newcommand{\FEFUISSCHOOL}{false}
+\newcommand{\fefuisschool}[1]{
+	\renewcommand{\FEFUISSCHOOL}{#1}
+}
+
+\newcommand{\FEFUDEPARTMENT}{Какой-то департамент}
+\newcommand{\fefudepartment}[1]{
+	\renewcommand{\FEFUDEPARTMENT}{#1}
+}
+
+\newcommand{\FEFUPLACE}{г. Владивосток}
+\newcommand{\fefuplace}[1]{
+	\renewcommand{\FEFUPLACE}{#1}
+}
+
+\newcommand{\FEFUDAY}{\the\day}
+\newcommand{\fefuday}[1]{
+	\renewcommand{\FEFUDAY}{#1}
+}
+
+\newcommand{\FEFUMONTH}{\the\month}
+\newcommand{\fefumonth}[1]{
+	\renewcommand{\FEFUMONTH}{#1}
+}
+
+\newcommand{\FEFUYEAR}{\the\year}
+\newcommand{\fefuyear}[1]{
+	\renewcommand{\FEFUYEAR}{#1}
+}
+
+\newcommand{\FEFUFILLDATE}{true}
+\newcommand{\fefufilldate}[1]{
+	\renewcommand{\FEFUFILLDATE}{#1}
+}
+
+\newcommand{\FEFUHEAD}{}
+\newcommand{\fefuhead}[1]{
+	\renewcommand{\FEFUHEAD}{#1}
+}
+
+\newcommand{\FEFUEXTENDEDFILLSPACE}{false}
+\newcommand{\fefuextendedfillspace}[1]{
+	\renewcommand{\FEFUEXTENDEDFILLSPACE}{#1}
+}
+
+\newcommand{\FEFULEFTTEXT}{}
+\newcommand{\fefulefttext}[1]{
+	\renewcommand{\FEFULEFTTEXT}{#1}
+}
+
+\newcommand{\FEFURIGHTBOTTOM}{}
+\newcommand{\fefurightbottom}[1]{
+	\renewcommand{\FEFURIGHTBOTTOM}{#1}
+}
+
+\newdate{fefudate}{\FEFUDAY}{\FEFUMONTH}{\FEFUYEAR}
+
+\newcommand{\fefuheaderpart}{
+	\begin{center}
+		\includegraphics[scale=0.3]{pictures/fefu_logo.jpeg}
+
+		\vspace*{-10pt}
+		{\fontsize{11}{11}\selectfont МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ}
+		
+		\vspace*{-12pt}
+		{\fontsize{11}{11}\selectfont Федеральное госудраственное автономное образовательное учреждение высшего образования}
+		
+		\vspace*{-10pt}
+		\textbf{<<Дальневосточный федеральный университет>>}
+
+		\vspace*{-10pt}
+		(ДВФУ)
+
+		\vspace*{-10pt}
+		\rule{\textwidth}{3pt}
+
+		\vspace*{-24pt}
+		\rule{\textwidth}{1pt}
+
+		\vspace*{-10pt}
+	\end{center}
+}
+
+\newcommand{\fefutitlepart}{
+	\begin{center}
+		\textbf{\MakeTextUppercase{\FEFUINSTITUTE}}
+
+		\ifthenelse{\equal{\FEFUISSCHOOL}{true}}{
+			\textbf{(ШКОЛА)}
+		}{
+			\vspace{\baselineskip}
+		}
+
+		\vspace{10pt}
+		\textbf{\FEFUDEPARTMENT}
+
+		\vspace{20pt}
+		\textbf{\MakeTextUppercase{\FEFUDOCUMENTCLASS}}
+
+		\vspace{15pt}
+		\FEFUTITLE
+
+		\vspace{10pt}
+		Направление подготовки
+
+		\vspace*{-6pt}
+		\FEFUMAJOR
+
+	\end{center}
+}
+
+\newcommand{\fefumainpart}{
+
+	\ifthenelse{\equal{\FEFUEXTENDEDFILLSPACE}{true}}{
+		\begin{tabular}{p{0.4\textwidth} p{0.6\textwidth}}
+			}{
+		\begin{tabular}{p{0.5\textwidth} p{0.5\textwidth}}
+			}
+        \ifthenelse{\equal{\FEFULEFTTEXT}{}}{
+		}{
+			\FEFULEFTTEXT
+		}
+		&
+		Выполнил студент гр.
+
+		\FEFUGROUP
+
+		\ifthenelse{\equal{\FEFUAUTHOR}{}}{
+			\ufullname{\hspace{0.16\textwidth}} \usign
+		}{
+			\ufullname{\FEFUAUTHOR} \usign
+		}
+
+		\vspace{10pt}
+        \ifthenelse{\equal{\FEFUHEAD}{}}{
+		}{
+            Руководитель практики
+            
+			\hfullname{\FEFUHEAD} \usign
+		}
+
+		\vspace{10pt}
+		\ifthenelse{\equal{\FEFUFILLDATE}{true}}{
+			\filldate
+		}{
+			\docdateformat\displaydate{fefudate}
+		}
+
+        \vspace{10pt}
+        \ifthenelse{\equal{\FEFURIGHTBOTTOM}{}}{
+		}{
+            \FEFURIGHTBOTTOM
+		}
+
+	\end{tabular}
+}
+
+\newcommand{\fefufooterpart}{
+	\begin{center}
+		\textbf{\FEFUPLACE}
+
+		\textbf{\FEFUYEAR}
+
+	\end{center}
+}
+
+\newcommand{\fefutitlepage}{
+
+    \thispagestyle{empty}
+
+	\fefuheaderpart
+
+	\fefutitlepart
+
+	\fefumainpart
+
+	\vfill
+
+	\fefufooterpart
+
+	\pagebreak
+}

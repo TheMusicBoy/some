@@ -1,0 +1,44 @@
+
+Test "My1"
+------------------------------
+k = 10000
+\alpha = 10.883
+u = \begin{pmatrix}
+	-0.396 & 0.047 & 0.547 & 0.496 & 0.368 & -0.401
+\end{pmatrix}
+
+\operatorname{error} = 3.652
+
+
+Test "ritas_2"
+------------------------------
+k = 16
+\alpha = 5.652
+u = \begin{pmatrix}
+	0.532 & 0.446 & 0.409 & 0.592
+\end{pmatrix}
+
+\operatorname{error} = 4.75 \cdot 10^{-10}
+
+
+Test "My2"
+------------------------------
+k = 112
+\alpha = -22.386
+u = \begin{pmatrix}
+	0.332 & 0.235 & 0.191 & 0.575 & -0.166 & 0.577 & -0.326
+\end{pmatrix}
+
+\operatorname{error} = 9.81 \cdot 10^{-10}
+
+
+Test "ritas_1"
+------------------------------
+k = 38
+\alpha = 13.272
+u = \begin{pmatrix}
+	0.217 & 0.29 & 0.27 & 0.319 & 0.269 & 0.491 & 0.617
+\end{pmatrix}
+
+\operatorname{error} = 8.91 \cdot 10^{-10}
+

@@ -1,0 +1,34 @@
+\RequirePackage{color}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{listings}
+
+\definecolor{standartcolor}{rgb}{0.3, 0.3, 0.3}
+
+\newfontfamily{\libmono}{Liberation Mono}
+
+\renewcommand{\lstlistingname}{Код}
+
+\lstdefinestyle{basestyle}{
+inputencoding=utf8,
+basicstyle=\scriptsize\libmono\color{standartcolor},
+keywordstyle=\color{NavyBlue},
+commentstyle=\color{ForestGreen},
+stringstyle=\color{Tan},
+numbers=left,
+numberstyle=\tiny\color{Gray},
+stepnumber=1,
+numbersep=5pt,
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+frame=single,
+rulecolor=\color{Gray},
+tabsize=4,
+breakatwhitespace=false,
+escapeinside={\%*}{*)},
+}
+
+\lstdefinestyle{cpp_style}{
+style=basestyle,
+language=C++,
+}

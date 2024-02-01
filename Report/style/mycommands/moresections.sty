@@ -1,0 +1,55 @@
+\newcommand{\colontitleSection}{Глава}
+\newcommand{\setColontitleSection}[1]{
+    \renewcommand{\colontitleSection}{#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% More sections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\sectionstyle}[1]{\section*{#1}}
+
+\newcommand{\usection}[1]{
+    \pagebreak
+    \sectionstyle{#1}
+    \addcontentsline{toc}{section}{#1}
+    \setColontitleSection{#1}
+}
+
+\newcommand{\isection}[1]{
+    \stepcounter{section}
+    \usection{#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% More subsections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subsectionstyle}[1]{\subsection*{#1}}
+
+\newcommand{\usubsection}[1]{
+    \subsectionstyle{#1}
+    \addcontentsline{toc}{subsection}{#1}
+    \setColontitleSection{#1}
+}
+
+\newcommand{\isubsection}[1]{
+    \stepcounter{subsection}
+    \usubsection{#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% More subsubsections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subsubsectionstyle}[1]{\subsubsection*{#1}}
+
+\newcommand{\usubsubsection}[1]{
+    \subsubsectionstyle{#1}
+    \addcontentsline{toc}{subsubsection}{#1}
+}
+
+\newcommand{\isubsubsection}[1]{
+    \stepcounter{subsubsection}
+    \usubsubsection{#1}
+}

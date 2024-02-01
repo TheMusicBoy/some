@@ -1,0 +1,171 @@
+\RequirePackage{amsthm}
+
+\newcounter{theorem}[section]
+\setcounter{theorem}{0}
+\newcounter{lemma}[section]
+\setcounter{lemma}{0}
+\newcounter{axiom}[section]
+\setcounter{axiom}{0}
+\newcounter{definition}[section]
+\setcounter{definition}{0}
+\newcounter{example}[subsection]
+\setcounter{example}{0}
+
+\newcommand{\tbox}[1]{
+    \vspace{5pt}
+    \noindent\fbox{ \parbox{\textwidth}{
+        \vspace{5pt}
+        #1
+        \vspace{5pt}
+    }}
+    \vspace{5pt}
+}
+
+\newcommand{\thbox}[1]{
+    \vspace{5pt}
+    \noindent\fbox{ \parbox{\textwidth}{
+        #1
+    }}
+    \vspace{5pt}
+}
+
+\newcommand{\nthrm}[2]{
+    \vspace{5pt}
+    \stepcounter{theorem}
+    \noindent\underline{\textbf{Th \arabic{section}.\arabic{theorem} (#1).}} #2 
+    \setcounter{example}{0}
+    \vspace{5pt}
+}
+
+\newcommand{\thrm}[1]{
+    \vspace{5pt}
+    \stepcounter{theorem}
+    \noindent\underline{\textbf{Th \arabic{section}.\arabic{theorem}.}} #1 
+    \setcounter{example}{0}
+    \vspace{5pt}
+}
+
+\newcommand{\nlemma}[2]{
+    \vspace{5pt}
+    \stepcounter{lemma}
+    \noindent\underline{\textbf{Lem \arabic{section}.\arabic{lemma} (#1).}} #2 
+    \setcounter{example}{0}
+    \vspace{5pt}
+}
+
+\newcommand{\lemma}[1]{
+    \vspace{5pt}
+    \stepcounter{lemma}
+    \noindent\underline{\textbf{Lem \arabic{section}.\arabic{lemma}.}} #1 
+    \setcounter{example}{0}
+    \vspace{5pt}
+}
+
+\newcommand{\naxiom}[2]{
+    \vspace{5pt}
+    \stepcounter{axiom}
+    \noindent\underline{\textbf{Ax \arabic{section}.\arabic{axiom} (#1).}} #2 
+    \setcounter{example}{0}
+    \vspace{5pt}
+}
+
+\newcommand{\axiom}[1]{
+    \vspace{5pt}
+    \stepcounter{axiom}
+    \noindent\underline{\textbf{Ax \arabic{section}.\arabic{axiom}.}} #1 
+    \setcounter{example}{0}
+    \vspace{5pt}
+}
+
+\newcommand{\ndefinition}[2]{
+    \vspace{5pt}
+    \stepcounter{definition}
+    \noindent\underline{\textbf{Def \arabic{section}.\arabic{definition} (#1).}} #2 
+    \setcounter{example}{0}
+    \vspace{5pt}
+}
+
+\newcommand{\definition}[1]{
+    \vspace{5pt}
+    \stepcounter{definition}
+    \noindent\underline{\textbf{Def \arabic{section}.\arabic{definition}.}} #1 
+    \setcounter{example}{0}
+    \vspace{5pt}
+}
+
+\newcommand{\remark}[1]{
+    \vspace{5pt}
+    \noindent\underline{\textbf{Remark.}} #1 
+    \setcounter{example}{0}
+    \vspace{5pt}
+}
+
+\newcommand{\statement}[1]{
+    \vspace{5pt}
+    \noindent\underline{\textbf{St.}} #1 
+    \setcounter{example}{0}
+    \vspace{5pt}
+}
+
+\newcommand{\nremark}[2]{
+    \vspace{5pt}
+    \noindent\underline{\textbf{Remark (#1).}} #2 
+    \setcounter{example}{0}
+    \vspace{5pt}
+}
+
+\newcommand{\proofing}[1]{
+    \vspace{10pt}
+    \noindent \textit{Proof:} #1 \( \blacksquare \)
+    \vspace{20pt}
+}
+
+\newcounter{task}[section]
+\setcounter{task}{0}
+\newcommand{\task}{
+    \vspace{15pt}
+    \stepcounter{task}
+    \underline{\textbf{Задача №\arabic{task}}} \par
+    \vspace{10pt}
+}
+
+\newcommand{\ntask}[1]{
+    \vspace{15pt}
+    \setcounter{task}{#1}
+    \underline{\textbf{Задача №\arabic{task}}} \par
+    \vspace{10pt}
+}
+
+\newcommand{\example}{
+    \vspace{20pt}
+    \stepcounter{example}
+    \underline{\textbf{Пример №\arabic{example}}} \par
+    \vspace{5pt}
+}
+
+\newcommand{\problem}[1]{
+    \textbf{Условие:} #1
+
+    \vspace{10pt}
+}
+
+\newcommand{\resolve}{
+    \textbf{Решение:}
+
+    \vspace{10pt}
+}
+
+\newcommand{\answer}{
+    \vspace{10pt}
+
+    \textbf{Ответ: } 
+
+    \vspace{20pt}
+}
+
+\newcommand{\hhline}{
+\vspace{10pt}
+
+\hline
+
+\vspace{10pt}}
